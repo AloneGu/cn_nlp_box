@@ -21,3 +21,11 @@
 ### sklearn text process
 
         python count_vec.py
+
+### web app
+
+        python app.py
+
+        open your browser and visit 0.0.0.0:8006/GetCmd/{your chinese text}
+
+        e.g. 0.0.0.0:8006/GetCmd/{把灯灭了}
