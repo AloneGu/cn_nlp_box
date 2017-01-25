@@ -7,6 +7,7 @@ import pandas as pd
 import jieba
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
 
 
 class TextCmdProcessor(object):
@@ -19,13 +20,16 @@ class TextCmdProcessor(object):
     def train_model(self):
         self.vectorizer = CountVectorizer(min_df=0, analyzer=(lambda s: s.split()))
         str_x, x, y = [], [], []
-        for text_row, cmd in self.src_df.values:
+        for text_row, cmd, _ in self.src_df.values:
             split_str = ' '.join(jieba.cut(text_row, cut_all=True))
             str_x.append(split_str)
             y.append(int(cmd))
         x = self.vectorizer.fit_transform(str_x).toarray()
-        self.model = DecisionTreeClassifier()
+        #self.model = DecisionTreeClassifier()
+        self.model = KNeighborsClassifier(n_neighbors=1)
         self.model.fit(x, y)
+        # print y
+        # print self.model.predict(x)
         # for r in str_x:
         #     print r
         # for a,b in zip(x,y):
@@ -34,9 +38,12 @@ class TextCmdProcessor(object):
     def process(self, text):
         split_str = ' '.join(jieba.cut(text, cut_all=True))
         vec = self.vectorizer.transform([split_str]).toarray()
-        return self.model.predict(vec)
+        return self.model.predict(vec),self.model.predict_proba(vec)
 
 
 if __name__ == '__main__':
     t = TextCmdProcessor('./data/train.csv')
     print t.process(u'关灯')
+    print t.process(u'小明快开灯吧')
+
+
