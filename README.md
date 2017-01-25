@@ -11,3 +11,11 @@
 7. 音量高一点
 8. 音量低一点
 ---------
+
+### jieba example
+
+        python jieba_test.py
+
+### sklearn text process
+
+        python count_vec.py
