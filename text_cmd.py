@@ -6,7 +6,7 @@
 import pandas as pd
 import jieba
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
 
 
 class TextCmdProcessor(object):
@@ -24,7 +24,7 @@ class TextCmdProcessor(object):
             str_x.append(split_str)
             y.append(int(cmd))
         x = self.vectorizer.fit_transform(str_x).toarray()
-        self.model = KNeighborsClassifier(n_neighbors=3)
+        self.model = DecisionTreeClassifier()
         self.model.fit(x, y)
         # for r in str_x:
         #     print r
@@ -39,4 +39,4 @@ class TextCmdProcessor(object):
 
 if __name__ == '__main__':
     t = TextCmdProcessor('./data/train.csv')
-    print t.process(u'小明把灯打开')
+    print t.process(u'关灯')
