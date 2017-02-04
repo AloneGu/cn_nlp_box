@@ -15,6 +15,7 @@ cmd_dict = {
 }
 
 from flask import Flask
+from flask import request
 import json
 from text_cmd import TextCmdProcessor
 
@@ -26,13 +27,18 @@ def index():
     return "Hello, World!"
 
 
-@app.route('/GetCmd/<text>', methods=['POST', 'GET'])
-def trans_cmd(text):
+@app.route('/GetCmd', methods=['POST', 'GET']) # /GetCmd?txt=xxx
+def trans_cmd():
     t = TextCmdProcessor('./data/train.csv')
-    res, prob = t.process(text)
-    cmd_code = str(res[0])
-    cmd_str = cmd_dict[cmd_code]
-    res = {'cmd_code': cmd_code, 'cmd': cmd_str}
+    text = request.args.get('txt','')
+    # print request.args
+    res = {'error':'no text'}
+    if text!='':
+        res, prob = t.process(text)
+        cmd_code = str(res[0])
+        cmd_str = cmd_dict[cmd_code]
+        res = {'cmd_code': cmd_code, 'cmd': cmd_str}
+
     return json.dumps(res, ensure_ascii=False)
 
 
