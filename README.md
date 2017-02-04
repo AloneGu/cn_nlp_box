@@ -26,6 +26,6 @@
 
         python app.py
 
-        open your browser and visit 0.0.0.0:8006/GetCmd/{your chinese text}
+        open your browser and visit 0.0.0.0:8006/GetCmd?txt={your chinese text}
 
-        e.g. 0.0.0.0:8006/GetCmd/{把灯灭了}
+        e.g. 0.0.0.0:8006/GetCmd?txt=把灯灭了
