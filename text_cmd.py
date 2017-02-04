@@ -38,7 +38,7 @@ class TextCmdProcessor(object):
     def process(self, text):
         split_str = ' '.join(jieba.cut(text, cut_all=True))
         vec = self.vectorizer.transform([split_str]).toarray()
-        return self.model.predict(vec),self.model.predict_proba(vec)
+        return self.model.predict(vec),self.model.kneighbors(vec)[0][0][0] # classification result and nearest distance
 
 
 if __name__ == '__main__':

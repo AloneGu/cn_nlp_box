@@ -34,10 +34,13 @@ def trans_cmd():
     # print request.args
     res = {'error':'no text'}
     if text!='':
-        res, prob = t.process(text)
-        cmd_code = str(res[0])
-        cmd_str = cmd_dict[cmd_code]
-        res = {'cmd_code': cmd_code, 'cmd': cmd_str}
+        res, nearest_distance = t.process(text)
+        if nearest_distance <= 1:
+            cmd_code = str(res[0])
+            cmd_str = cmd_dict[cmd_code]
+            res = {'cmd_code': cmd_code, 'cmd': cmd_str}
+        else:
+            res = {'cmd_code': 0, 'cmd': "can not find command"}
 
     return json.dumps(res, ensure_ascii=False)
 
