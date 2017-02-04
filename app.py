@@ -34,7 +34,7 @@ def trans_cmd():
     # print request.args
     res = {'error':'no text'}
     if text!='':
-        res, nearest_distance = t.process(text)
+        res, nearest_distance = t.process(text) # use if to determine simple command
         if nearest_distance <= 1:
             cmd_code = str(res[0])
             cmd_str = cmd_dict[cmd_code]

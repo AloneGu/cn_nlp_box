@@ -14,7 +14,7 @@ class TextCmdProcessor(object):
     def __init__(self, data_file):
         self.file_path = data_file
         self.src_df = pd.read_csv(self.file_path)
-        print self.src_df.head()
+        # print self.src_df.head()
         self.train_model()
 
     def train_model(self):
@@ -25,7 +25,7 @@ class TextCmdProcessor(object):
             str_x.append(split_str)
             y.append(int(cmd))
         x = self.vectorizer.fit_transform(str_x).toarray()
-        #self.model = DecisionTreeClassifier()
+        # self.model = DecisionTreeClassifier()
         self.model = KNeighborsClassifier(n_neighbors=1)
         self.model.fit(x, y)
         # print y
