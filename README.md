@@ -29,3 +29,11 @@
         open your browser and visit 0.0.0.0:8006/GetCmd?txt={your chinese text}
 
         e.g. 0.0.0.0:8006/GetCmd?txt=把灯灭了
+
+### note
+
+* use if else to process simple text
+
+* use distance to reject some text
+
+* more training data
