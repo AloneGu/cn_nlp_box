@@ -6,7 +6,7 @@
 
 from pypinyin import pinyin,lazy_pinyin,TONE,NORMAL
 
-test_data = [u'你好',u'世界']
+test_data = [u'你好',u'世界',u'pm',u'pm二点五',u'pm2.5',u'pm2']
 
 def trans_cn_pinyin(text):
     return ''.join(lazy_pinyin(text,NORMAL))
