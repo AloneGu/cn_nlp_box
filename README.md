@@ -1,5 +1,7 @@
 ## nlp test
 
+this project use python3 !!! lol
+
 ---------
 
 灯，音量

@@ -16,11 +16,11 @@ corpus = [
     'Is this the first document?',
 ]
 analyze = vectorizer.build_analyzer()
-print  analyze("This is a text document to analyze.")
+print(analyze("This is a text document to analyze."))
 X = vectorizer.fit_transform(corpus)
-print vectorizer.get_feature_names()
-print X.toarray()
-print '-'*20
+print(vectorizer.get_feature_names())
+print(X.toarray())
+print('-'*20)
 # test countvectorizer
 vectorizer = CountVectorizer(min_df=1,binary=True)
 corpus = [
@@ -31,11 +31,11 @@ corpus = [
     'Is this the first document?',
 ]
 analyze = vectorizer.build_analyzer()
-print analyze("This is a text document to analyze.")
+print(analyze("This is a text document to analyze."))
 X = vectorizer.fit_transform(corpus)
-print vectorizer.get_feature_names()
-print X.toarray()
-print '-'*20
+print(vectorizer.get_feature_names())
+print(X.toarray())
+print('-'*20)
 # test cn
 cn_corpus = [
     '有点 看不清',
@@ -44,10 +44,10 @@ cn_corpus = [
 vectorizer = CountVectorizer(min_df=0, analyzer=(lambda s: s.split()))
 X = vectorizer.fit_transform(cn_corpus)
 res = '/'.join(vectorizer.get_feature_names())
-print res
-print X.toarray()
+print(res)
+print(X.toarray())
 # test td idf
 vectorizer = TfidfVectorizer(min_df=1)
 X = vectorizer.fit_transform(corpus)
-print X.toarray()
-print '-'*20
+print(X.toarray())
+print('-'*20)

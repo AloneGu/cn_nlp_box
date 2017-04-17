@@ -43,7 +43,7 @@ class TextCmdProcessor(object):
 
 if __name__ == '__main__':
     t = TextCmdProcessor('./data/train.csv')
-    print t.process(u'关灯')
-    print t.process(u'小明快开灯吧')
+    print(t.process(u'关灯'))
+    print(t.process(u'小明快开灯吧'))
 
 

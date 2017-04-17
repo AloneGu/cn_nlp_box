@@ -13,10 +13,10 @@ def trans_cn_pinyin(text):
 
 
 for r in test_data:
-    print pinyin(r)
-    print pinyin(r,NORMAL)
-    print lazy_pinyin(r,TONE)
-    print lazy_pinyin(r,NORMAL)
-    print trans_cn_pinyin(r)
-    print '----------'
+    print(pinyin(r))
+    print(pinyin(r,NORMAL))
+    print(lazy_pinyin(r,TONE))
+    print(lazy_pinyin(r,NORMAL))
+    print(trans_cn_pinyin(r))
+    print('----------')
 
