@@ -4,19 +4,19 @@
 # @Author  : Jackling 
 
 
-from pypinyin import pinyin,lazy_pinyin,TONE,NORMAL
+from pypinyin import pinyin, lazy_pinyin, TONE, NORMAL
 
-test_data = [u'你好',u'世界',u'pm',u'pm二点五',u'pm2.5',u'pm2']
+test_data = [u'你好', u'世界', u'pm', u'pm二点五', u'pm2.5', u'pm2']
+
 
 def trans_cn_pinyin(text):
-    return ''.join(lazy_pinyin(text,NORMAL))
+    return ''.join(lazy_pinyin(text, NORMAL))
 
 
 for r in test_data:
     print(pinyin(r))
-    print(pinyin(r,NORMAL))
-    print(lazy_pinyin(r,TONE))
-    print(lazy_pinyin(r,NORMAL))
+    print(pinyin(r, NORMAL))
+    print(lazy_pinyin(r, TONE))
+    print(lazy_pinyin(r, NORMAL))
     print(trans_cn_pinyin(r))
     print('----------')
-

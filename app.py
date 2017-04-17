@@ -27,14 +27,14 @@ def index():
     return "Hello, World!"
 
 
-@app.route('/GetCmd', methods=['POST', 'GET']) # /GetCmd?txt=xxx
+@app.route('/GetCmd', methods=['POST', 'GET'])  # /GetCmd?txt=xxx
 def trans_cmd():
     t = TextCmdProcessor('./data/train.csv')
-    text = request.args.get('txt','')
+    text = request.args.get('txt', '')
     # print request.args
-    res = {'error':'no text'}
-    if text!='':
-        res, nearest_distance = t.process(text) # use if to determine simple command
+    res = {'error': 'no text'}
+    if text != '':
+        res, nearest_distance = t.process(text)  # use if to determine simple command
         if nearest_distance <= 1:
             cmd_code = str(res[0])
             cmd_str = cmd_dict[cmd_code]

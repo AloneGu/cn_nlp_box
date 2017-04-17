@@ -38,12 +38,11 @@ class TextCmdProcessor(object):
     def process(self, text):
         split_str = ' '.join(jieba.cut(text, cut_all=True))
         vec = self.vectorizer.transform([split_str]).toarray()
-        return self.model.predict(vec),self.model.kneighbors(vec)[0][0][0] # classification result and nearest distance
+        return self.model.predict(vec), self.model.kneighbors(vec)[0][0][
+            0]  # classification result and nearest distance
 
 
 if __name__ == '__main__':
     t = TextCmdProcessor('./data/train.csv')
     print(t.process(u'关灯'))
     print(t.process(u'小明快开灯吧'))
-
-
