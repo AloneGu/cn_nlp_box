@@ -44,5 +44,10 @@ print(wordnet_lemmatizer.lemmatize('used',pos='v'))
 print('-----')
 
 from nltk.corpus import stopwords
+en_st_words = stopwords.words('english')
 print(stopwords.words('english')[:10])
+print('-----')
+
+new_t = [w.lower() for w in token_list if w.lower() not in en_st_words and w.isalpha()]
+print(new_t)
 print('-----')
